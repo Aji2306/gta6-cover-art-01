@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA 6 Cover Art Maker</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <h1>GTA 6 COVER ART MAKER</h1>
+    <div class="subtitle">VICE CITY POSTER COLLAGE STUDIO</div>
+  </header>
+
+  <div class="main-container">
+    <!-- Controls Pane -->
+    <div class="controls-pane">
+      
+      <!-- Layout Picker -->
+      <div class="control-group">
+        <label>Poster Layout</label>
+        <div class="thumbnails-grid">
+          <div class="layout-thumb" data-layout="hero-2">Hero + 2</div>
+          <div class="layout-thumb" data-layout="triptych">Triptych</div>
+          <div class="layout-thumb" data-layout="quad">Quad Grid</div>
+          <div class="layout-thumb" data-layout="portrait-stack">Portrait Stack</div>
+        </div>
+      </div>
+
+      <!-- Color Grades -->
+      <div class="control-group">
+        <label>Colour Grade</label>
+        <div class="thumbnails-grid">
+          <div class="grade-thumb" data-grade="sunset">Sunset Glow</div>
+          <div class="grade-thumb" data-grade="neon-night">Neon Night</div>
+          <div class="grade-thumb" data-grade="vice-gold">Vice Gold</div>
+        </div>
+      </div>
+
+      <!-- Caption & Tagline -->
+      <div class="control-group">
+        <label>Main Caption (Max 40)</label>
+        <input type="text" id="captionInput" maxlength="40" placeholder="VICE SUNSET">
+      </div>
+
+      <div class="control-group">
+        <label>Tagline (Max 60)</label>
+        <input type="text" id="taglineInput" maxlength="60" placeholder="PARADISE LOST & FOUND">
+      </div>
+
+      <div class="control-group">
+        <label>Caption Position</label>
+        <select id="captionPosSelect">
+          <option value="bottom">Bottom</option>
+          <option value="top">Top</option>
+        </select>
+      </div>
+
+      <!-- Per-Panel Photos -->
+      <div class="control-group">
+        <label>Panel Photos & Crop</label>
+        <button id="samePhotoBtn" class="secondary">Use Photo 1 in All Panels</button>
+        <div class="panels-control-list">
+          <div class="panel-control-item">
+            <div class="panel-control-header"><span>Panel 1 (Hero)</span></div>
+            <input type="file" id="panelFile0" accept="image/*">
+            <input type="range" id="zoomRange0" min="0.5" max="3" step="0.1" value="1" title="Zoom">
+          </div>
+          <div class="panel-control-item">
+            <div class="panel-control-header"><span>Panel 2</span></div>
+            <input type="file" id="panelFile1" accept="image/*">
+            <input type="range" id="zoomRange1" min="0.5" max="3" step="0.1" value="1" title="Zoom">
+          </div>
+          <div class="panel-control-item">
+            <div class="panel-control-header"><span>Panel 3</span></div>
+            <input type="file" id="panelFile2" accept="image/*">
+            <input type="range" id="zoomRange2" min="0.5" max="3" step="0.1" value="1" title="Zoom">
+          </div>
+          <div class="panel-control-item">
+            <div class="panel-control-header"><span>Panel 4</span></div>
+            <input type="file" id="panelFile3" accept="image/*">
+            <input type="range" id="zoomRange3" min="0.5" max="3" step="0.1" value="1" title="Zoom">
+          </div>
+        </div>
+      </div>
+
+      <!-- Export Buttons -->
+      <div class="control-group">
+        <label>Export Cover PNG</label>
+        <div class="export-buttons">
+          <button id="export1080s">Square<br>(1080x1080)</button>
+          <button id="export1080p">Portrait<br>(1080x1350)</button>
+          <button id="export1920">Landscape<br>(1920x1080)</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Preview Pane -->
+    <div class="preview-pane">
+      <div class="canvas-wrapper">
+        <canvas id="previewCanvas"></canvas>
+      </div>
+      <div class="status-bar" id="statusBar">Ready. Load photos or click export.</div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
